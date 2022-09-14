@@ -8,7 +8,6 @@ const params = {
 let retryCreate = 0
 
 function addUser () {
-    return
     db.createTable({
         AttributeDefinitions: [
             {
