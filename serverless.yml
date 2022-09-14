@@ -1,0 +1,74 @@
+service: node-challenge
+frameworkVersion: '3'
+useDotenv: true
+plugins:
+  - serverless-dotenv-plugin
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ${env:AWS_REGION_SERVERLESS}
+  stage: ${sls:stage}
+  environment:
+    AWS_DYNAMODB_TABLE: ${env:AWS_DYNAMODB_TABLE}
+  httpApi:
+    cors: true
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${env:AWS_DYNAMODB_TABLE}"
+
+functions:
+  create:
+    handler: lib/handler.create
+    events:
+      - httpApi:
+          path: /employees
+          method: post
+  update:
+    handler: lib/handler.update
+    events:
+      - httpApi:
+          path: /employees/{id}
+          method: put
+  remove:
+    handler: lib/handler.remove
+    events:
+      - httpApi:
+          path: /employees/{id}
+          method: delete
+  list:
+    handler: lib/handler.list
+    events:
+      - httpApi:
+          path: /employees
+          method: get
+  get:
+    handler: lib/handler.byId
+    events:
+      - httpApi:
+          path: /employees/{id}
+          method: get
+
+resources:
+  Resources:
+    ChallengeDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${env:AWS_DYNAMODB_TABLE}

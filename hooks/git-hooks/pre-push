@@ -1,0 +1,9 @@
+#!/bin/bash
+
+doWork() {
+    echo "I see you intend to push things...but let me run some test first..."
+    npm run test &&
+    exit 1
+}
+
+doWork

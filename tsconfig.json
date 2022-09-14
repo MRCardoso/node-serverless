@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "module": "commonjs",
+        "lib": ["es6"],
+        "allowJs": true,
+        "outDir": "./lib",
+        "rootDir": "./src",
+        "removeComments": true,
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
