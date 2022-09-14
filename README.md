@@ -3,6 +3,7 @@
 ## Thirdpart dependencies
 * [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 * [serverless framework](https://www.serverless.com/framework/docs/getting-started)
+* [node v16+](https://nodejs.org/en/)
 
 ---
 
@@ -26,12 +27,12 @@ npm run build
 ### Deploy the serverless app
 Automatically before the deploy starts the `node_modules` will re-installed and `lib` folder will be regenerated/rebuilded
 ```
-npm run deploy
+npm run deploy <stage>
 ```
 
 ### Remove the serverless services
 ```
-npm run purge
+npm run purge <stage>
 ```
 
 ---
