@@ -3,7 +3,7 @@
 doWork() {
     echo -e "\033[4;35mI see you intend to push things...but let me run some test first...\033[0m"
     npm run test &&
-    exit 1
+    exit 0
 }
 
 doWork
