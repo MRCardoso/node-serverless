@@ -3,6 +3,25 @@ frameworkVersion: '3'
 useDotenv: true
 plugins:
   - serverless-dotenv-plugin
+	
+package:
+  patterns:
+    - '!.git/**'
+    - '!bin/**'
+    - '!src/**'
+    - '!tests/**'
+    - '!hooks/**'
+    - '!serverless.yml'
+    - '!.env'
+    - '!.env.example'
+    - '!.eslintrc.json'
+    - '!babel.config.js'
+    - '!jest.config.js'
+    - '!package.json'
+    - '!package-lock.json'
+    - '!README.md'
+    - '!tsconfig.json'
+
 provider:
   name: aws
   runtime: nodejs16.x

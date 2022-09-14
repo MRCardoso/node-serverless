@@ -13,8 +13,7 @@
     "pretest": "node -r dotenv/config bin/createTestTable.js 'c'",
     "test": "NODE_ENV=test jest --setupFiles dotenv/config",
     "posttest": "node -r dotenv/config bin/createTestTable.js 'd'",
-    "predeploy": "rm -rf node_modules lib && npm i --only=dev && npm run build && npm i --platform=linux --arch=x64 --target=16.x",
-    "deploy": "serverless deploy --verbose --stage",
+    "deploy": "./bin/deploy.sh",
     "postdeploy": "rm -rf lib",
     "purge": "serverless remove --verbose --stage"
   },

@@ -4,7 +4,7 @@ url="https://0ne59utzpd.execute-api.us-east-2.amazonaws.com/employees"
 
 
 doWork() {
-    echo "$1"
+    echo -e "\033[4;32m$1\033[0m"
     eval "$1"
 }
 if [[ $1 = 'create' ]]
