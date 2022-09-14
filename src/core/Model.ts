@@ -37,6 +37,7 @@ export default class Model {
                 return reject(this.validator.getErrors())
             }
             const params = this.transform.create(data, uuidV4())
+            console.log({Create: params}, data)
             this.db.put(params, (error: AWSError) => {
                 if (error) {
                     return reject(this.transform.errors(error))

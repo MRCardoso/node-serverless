@@ -29,10 +29,8 @@ export default class DynamoTransform {
         return {
             TableName: this.table,
             Item: {
+                ...data,
                 id,
-                age: data.age,
-                name: data.name,
-                role: data.role,
                 createdAt: timestamp,
                 updatedAt: timestamp,
             },
