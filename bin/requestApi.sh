@@ -17,7 +17,7 @@ elif [[ $1 = 'update' ]]
 then
     if [[ -n $2 ]] || [[ -n $3 ]]
     then
-        doWork "curl -X PUT --data "$3" -H 'Content-Type: application/json' $AWS_APIGATEWAY_URL/employees/$2"
+        doWork "curl -X PUT --data '$3' -H 'Content-Type: application/json' $AWS_APIGATEWAY_URL/employees/$2"
     fi
 elif [[ $1 = 'remove' ]]
 then
