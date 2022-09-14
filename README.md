@@ -8,6 +8,18 @@
 ---
 
 ## Deployment
+### Copy env.example
+```shell
+cp .env.example .env
+```
+### Configure AWS
+```shell
+aws configure
+```
+### Check system requirements
+```shell
+npm run check
+```
 ### Install npm packages
 ```shell
 npm i
